@@ -1,0 +1,379 @@
+
+/* =========================================
+   1. KHAI BÁO BIẾN & THIẾT LẬP CƠ BẢN
+   ========================================= */
+:root {
+  --bg-cream: #FAF8F5;
+  --bg-beige: #F2ECE4;
+  --bg-card: #FFFFFF;
+  --color-primary: #5C4A42;
+  --color-accent: #B86B4B;
+  --color-muted: #968C84;
+  --border-light: #EAE3DA;
+  --radius-card: 12px;
+  --radius-btn: 8px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  background-color: var(--bg-cream);
+  color: var(--color-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* =========================================
+   2. THANH ĐIỀU HƯỚNG (NAVBAR)
+   ========================================= */
+.navbar {
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+.brand-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-primary);
+}
+
+/* =========================================
+   3. KHU VỰC SẢN PHẨM & LƯỚI
+   ========================================= */
+.main-content {
+  min-height: calc(100vh - 130px);
+}
+
+.product-section {
+  padding: 40px 0 60px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* =========================================
+   4. TIÊU ĐỀ SẢN PHẨM
+      EDITORIAL LUXURY - CENTERED
+   ========================================= */
+
+.section-header {
+  text-align: center;
+  margin-bottom: 42px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #D8C9B9;
+  position: relative;
+}
+
+/* Dòng chữ nhỏ phía trên */
+.section-eyebrow {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--color-accent);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+/* Tiêu đề chính */
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.2;
+  color: #3D3029;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+/* Dấu chấm trang trí */
+.section-title span {
+  color: var(--color-accent);
+}
+
+/* Mô tả */
+.section-subtitle {
+  font-size: 1rem;
+  color: #87776B;
+  line-height: 1.8;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   5. THẺ SẢN PHẨM (PRODUCT CARD)
+   ========================================= */
+.product-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+/* Khung hình ảnh */
+.product-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--bg-beige);
+  overflow: hidden;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Nhãn giảm giá */
+.badge-discount {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: var(--color-accent);
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 6px;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+/* Nội dung sản phẩm */
+.product-content {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Tên sản phẩm */
+.product-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Khu vực giá */
+.product-price-box {
+  margin-top: auto;
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.sale-price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.original-price {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  text-decoration: line-through;
+}
+
+/* Nút thêm vào giỏ hàng */
+.btn-add-to-cart {
+  width: 100%;
+  padding: 8px 10px;
+  background-color: var(--bg-beige);
+  color: var(--color-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-btn);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-add-to-cart:hover {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+}
+
+.btn-add-to-cart:active {
+  transform: scale(0.98);
+}
+
+/* =========================================
+   6. CHÂN TRANG (FOOTER)
+   ========================================= */
+.site-footer {
+  background-color: var(--bg-beige);
+  border-top: 1px solid var(--border-light);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+/* =========================================
+   7. RESPONSIVE - DESKTOP
+   ========================================= */
+@media (min-width: 768px) {
+
+  .container {
+    padding: 0 24px;
+  }
+
+  .nav-container {
+    height: 72px;
+  }
+
+  .brand-logo {
+    font-size: 1.5rem;
+  }
+
+  .product-section {
+    padding: 56px 0 80px;
+  }
+
+  /* Bốn sản phẩm trên một hàng */
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .product-content {
+    padding: 16px;
+  }
+
+  .product-title {
+    font-size: 0.95rem;
+  }
+
+  .sale-price {
+    font-size: 1.1rem;
+  }
+
+  .original-price {
+    font-size: 0.85rem;
+  }
+
+  .btn-add-to-cart {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+
+  /* Hiệu ứng hover */
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(92, 74, 66, 0.08);
+    border-color: #DCD2C6;
+  }
+
+  .product-card:hover .product-img {
+    transform: scale(1.04);
+  }
+
+  /* Tiêu đề desktop */
+  .section-header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+  }
+
+  .section-eyebrow {
+    font-size: 0.8rem;
+    margin-bottom: 18px;
+  }
+
+  .section-title {
+    font-size: 3.2rem;
+    margin-bottom: 18px;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* =========================================
+   8. RESPONSIVE - MOBILE
+   ========================================= */
+@media (max-width: 480px) {
+
+  .section-header {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+  }
+
+  .section-eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 2.5px;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    letter-spacing: -0.8px;
+    margin-bottom: 12px;
+  }
+
+  .section-subtitle {
+    font-size: 0.82rem;
+    line-height: 1.7;
+    max-width: 340px;
+  }
+}
